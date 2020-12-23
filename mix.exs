@@ -1,7 +1,7 @@
 defmodule UeberauthTwitch.Mixfile do
   use Mix.Project
 
-  @version "0.3.0"
+  @version "0.3.1"
   @url "https://github.com/ueberauth/ueberauth_twitch"
 
   def project do
@@ -28,7 +28,7 @@ defmodule UeberauthTwitch.Mixfile do
      {:httpoison, "~> 1.0"},
      {:oauther, "~> 1.1"},
      {:ueberauth, "~> 0.6"},
-     {:oauth2, "~> 1.0"},
+     {:oauth2, "~> 2.0"},
 
      # dev/test dependencies
      {:earmark, ">= 0.0.0", only: :dev},

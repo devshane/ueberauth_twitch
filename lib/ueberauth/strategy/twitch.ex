@@ -29,18 +29,13 @@ defmodule Ueberauth.Strategy.Twitch do
   Handles the callback from Twitch.
   """
   def handle_callback!(%Plug.Conn{ params: %{ "code" => code } } = conn, opts) do
-    IO.inspect("callback url")
-    IO.inspect(callback_url(conn))
     opts = opts ++ [redirect_uri: callback_url(conn)]
-    IO.inspect("OAUTH: getting token")
     client = Ueberauth.Strategy.Twitch.OAuth.get_token!([code: code], opts)
     token = client.token
 
     if token.access_token == nil do
-      IO.inspect("OAUTH: no access token")
       set_errors!(conn, [error(token.other_params["error"], token.other_params["error_description"])])
     else
-      IO.inspect("OAUTH: fetching user")
       # We need to reset the client in the token here because it has basic auth in the headers
       fetch_user(conn, Map.put(token, :client, Ueberauth.Strategy.Twitch.OAuth.client), opts)
     end

@@ -73,8 +73,6 @@ defmodule Ueberauth.Strategy.Twitch.OAuth do
   end
 
   def get_token!(params \\ [], opts \\ []) do
-    IO.inspect("redirect_uri")
-    IO.inspect(opts[:redirect_uri])
     client = opts
     |> signed_client
     client = %{ client | client_secret: opts[:client_secret], redirect_uri: opts[:redirect_uri] }

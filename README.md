@@ -38,8 +38,9 @@ _Note_: Sessions are required for this strategy.
 
     ```elixir
     config :ueberauth, Ueberauth.Strategy.Twitch.OAuth,
-      consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
-      consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET")
+      client_id: System.get_env("TWITCH_CONSUMER_KEY"),
+      client_secret: System.get_env("TWITCH_CONSUMER_SECRET"),
+      redirect_uri: "http://localhost:4000/auth/twitch/callback"
     ```
 
 1.  Include the Überauth plug in your controller:
