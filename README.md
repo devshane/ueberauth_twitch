@@ -12,7 +12,7 @@ _Note_: Sessions are required for this strategy.
 
     ```elixir
     def deps do
-      [{:ueberauth_twitch, "~> 0.2"},
+      [{:ueberauth_twitch, "~> 0.3"},
        {:oauth, github: "tim/erlang-oauth"}]
     end
     ```
